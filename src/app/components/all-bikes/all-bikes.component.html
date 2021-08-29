@@ -1,0 +1,12 @@
+<p>
+  Verfügbare Fahrräder:
+</p>
+
+<ul *ngFor="let bike of bikes">
+  <li>
+    <app-edit-bike [bike]="bike"></app-edit-bike>
+  </li>
+</ul>
+
+<input [(ngModel)]="newName" type="text" placeholder="Name">
+<button (click)="addBike()"> Add </button>

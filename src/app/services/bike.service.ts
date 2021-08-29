@@ -16,4 +16,8 @@ export class BikeService {
   public get(): Observable<Bike[]> {
     return this.http.get<Bike[]>(this.bikesUrl)
   }
+
+  public add(name: string) {
+    return this.http.post<Bike>(this.bikesUrl, {name: name})
+  }
 }
