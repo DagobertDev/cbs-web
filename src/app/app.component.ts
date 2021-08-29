@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {Bike} from "../models/bike"
-import {BikeService} from "../services/bike.service"
+import {Bike} from "./models/bike"
+import {BikeService} from "./services/bike.service"
 
 @Component({
   selector: 'app-root',
