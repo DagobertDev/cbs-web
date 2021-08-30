@@ -2,8 +2,8 @@
   Verfügbare Fahrräder:
 </p>
 
-<ul *ngFor="let bike of bikes">
-  <li>
+<ul>
+  <li *ngFor="let bike of bikes">
     <app-edit-bike [bike]="bike"></app-edit-bike>
   </li>
 </ul>

@@ -1,1 +1,4 @@
-{{bike.name}}
+<div *ngIf="bike != null">
+  {{bike.name}}
+  <button (click)="delete()"> Delete </button>
+</div>

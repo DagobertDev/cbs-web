@@ -17,7 +17,11 @@ export class BikeService {
     return this.http.get<Bike[]>(this.bikesUrl)
   }
 
-  public add(name: string) {
+  public add(name: string): Observable<Bike> {
     return this.http.post<Bike>(this.bikesUrl, {name: name})
+  }
+
+  public delete(id: number): Observable<Object> {
+    return this.http.delete(`${this.bikesUrl}/${id}`)
   }
 }
