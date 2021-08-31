@@ -3,9 +3,9 @@
 </h1>
 
 
-<div *ngIf="auth.user | async as user else login">
-  <button (click)="auth.signOut()"> Logout </button>
-  <app-all-bikes></app-all-bikes>
+<div *ngIf="auth.$user | async as user else login">
+  <button (click)="auth.signOut()"> Logout</button>
+  <app-member-communities></app-member-communities>
 </div>
 
 <ng-template #login>

@@ -1,0 +1,12 @@
+<p>
+  Communities
+</p>
+
+<ul>
+  <li *ngFor="let community of communities">
+    {{community.name}}
+  </li>
+</ul>
+
+<input [(ngModel)]="newName" type="text" placeholder="Name">
+<button (click)="addCommunity()"> Add</button>

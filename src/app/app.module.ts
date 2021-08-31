@@ -10,6 +10,7 @@ import {AppComponent} from './app.component';
 import {AllBikesComponent} from './components/all-bikes/all-bikes.component';
 import {EditBikeComponent} from './components/edit-bike/edit-bike.component';
 import {LoginComponent} from './components/login/login.component';
+import {MemberCommunitiesComponent} from './components/member-communities/member-communities.component'
 import {RegistrationComponent} from './components/registration/registration.component';
 import {JwtInterceptor} from "./services/jwt.interceptor"
 
@@ -20,6 +21,7 @@ import {JwtInterceptor} from "./services/jwt.interceptor"
     EditBikeComponent,
     RegistrationComponent,
     LoginComponent,
+    MemberCommunitiesComponent,
   ],
   imports: [
     BrowserModule,
