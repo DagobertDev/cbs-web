@@ -18,12 +18,10 @@ export class RegistrationComponent implements OnInit {
   }
 
   async register() {
-    const credential = await this.auth.register(this.email, this.password)
-    const user = credential.user
-    return this.userService.add({
-      id: user.uid,
-      email: user.email!,
-      username: user.displayName ?? user.email!,
-    }).toPromise()
+    this.userService.add({
+      email: this.email,
+      username: this.email,
+      password: this.password,
+    }).toPromise().then(() => this.auth.signIn(this.email, this.password))
   }
 }

@@ -22,11 +22,17 @@ export class UserService {
     return this.http.get<User>(`${this.userUrl}/email/${email}`)
   }
 
-  public add(user: User): Observable<User> {
+  public add(user: UserWrite): Observable<User> {
     return this.http.post<User>(this.userUrl, user)
   }
 
   public delete(id: number): Observable<Object> {
     return this.http.delete(`${this.userUrl}/${id}`)
   }
+}
+
+interface UserWrite {
+  email: string
+  password: string
+  username: string
 }
