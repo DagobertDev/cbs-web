@@ -6,12 +6,12 @@ export const environment = {
   production: false,
   apiUrl: "https://localhost:5001",
   firebaseConfig: {
-    apiKey: "AIzaSyAEf14fHSLsNIyOzDt5p0C8xKr4MVRhHos",
-    authDomain: "community-bike-sharing.firebaseapp.com",
-    projectId: "community-bike-sharing",
-    storageBucket: "community-bike-sharing.appspot.com",
-    messagingSenderId: "278243155156",
-    appId: "1:278243155156:web:5fb2d849f2d8df6a692f41"
+    apiKey: "AIzaSyC5Pe-yB02AkuBqK6Nz7zob9ADU9O77J-s",
+    authDomain: "community-bike-s.firebaseapp.com",
+    projectId: "community-bike-s",
+    storageBucket: "community-bike-s.appspot.com",
+    messagingSenderId: "349778815438",
+    appId: "1:349778815438:web:80010e9a33daef18e0239f",
   }
 };
 
