@@ -1,14 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Auth, authState, signInWithEmailAndPassword, signOut} from "@angular/fire/auth"
 import {Observable} from "rxjs"
-import {map} from "rxjs/operators"
+import {first, map} from "rxjs/operators"
 import {User} from "../models/user"
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  user?: User
   $user: Observable<User | undefined>
 
   constructor(private auth: Auth) {
@@ -17,8 +16,18 @@ export class AuthService {
       email: auth.email!,
       username: auth.displayName ?? auth.email!,
     }))
+  }
 
-    this.$user.subscribe(user => this.user = user)
+  getUser(): Promise<User | null> {
+    return authState(this.auth).pipe(first(), map(user => user == null ? null : {
+      id: user.uid,
+      email: user.email!,
+      username: user.displayName ?? user.email!,
+    })).toPromise()
+  }
+
+  async isLoggedIn() {
+    return await this.getUser() != null
   }
 
   signIn(email: string, password: string) {

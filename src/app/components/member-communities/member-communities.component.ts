@@ -15,12 +15,12 @@ export class MemberCommunitiesComponent implements OnInit {
   constructor(private auth: AuthService, private communityService: CommunityService) {
   }
 
-  ngOnInit() {
-    this.getCommunities()
+  async ngOnInit() {
+    await this.getCommunities()
   }
 
-  getCommunities() {
-    return this.communityService.get(this.auth.user!.id).subscribe(communities => this.communities = communities)
+  async getCommunities() {
+    return this.communityService.get((await this.auth.getUser())!.id).subscribe(communities => this.communities = communities)
   }
 
   addCommunity() {

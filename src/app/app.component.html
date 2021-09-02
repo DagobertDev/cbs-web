@@ -1,17 +1,1 @@
-<h1>
-  Willkommen beim Community Bike-Sharing!
-</h1>
-
-
-<div *ngIf="auth.$user | async as user else login">
-  <button (click)="auth.signOut()"> Logout</button>
-  <app-member-communities></app-member-communities>
-</div>
-
-<ng-template #login>
-  <h2> Registrieren </h2>
-  <app-registration></app-registration>
-
-  <h2> Login </h2>
-  <app-login></app-login>
-</ng-template>
+<router-outlet></router-outlet>

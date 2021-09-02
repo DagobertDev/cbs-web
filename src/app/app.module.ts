@@ -5,14 +5,16 @@ import {getAuth, provideAuth} from "@angular/fire/auth"
 import {FormsModule} from "@angular/forms"
 import {BrowserModule} from '@angular/platform-browser';
 import {environment} from "../environments/environment"
+import {AppRoutingModule} from "./app-routing.module"
 
 import {AppComponent} from './app.component';
 import {AllBikesComponent} from './components/all-bikes/all-bikes.component';
 import {EditBikeComponent} from './components/edit-bike/edit-bike.component';
 import {LoginComponent} from './components/login/login.component';
 import {MemberCommunitiesComponent} from './components/member-communities/member-communities.component'
+import {OverviewComponent} from './components/overview/overview.component'
 import {RegistrationComponent} from './components/registration/registration.component';
-import {JwtInterceptor} from "./services/jwt.interceptor"
+import {JwtInterceptor} from "./services/jwt.interceptor";
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import {JwtInterceptor} from "./services/jwt.interceptor"
     RegistrationComponent,
     LoginComponent,
     MemberCommunitiesComponent,
+    OverviewComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),
   ],
