@@ -5,6 +5,7 @@
 <ul>
   <li *ngFor="let community of communities">
     {{community.name}}
+    <app-all-bikes [community]="community.id"></app-all-bikes>
   </li>
 </ul>
 

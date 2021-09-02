@@ -13,12 +13,13 @@ export class BikeService {
   constructor(private http: HttpClient) {
   }
 
-  public get(): Observable<Bike[]> {
-    return this.http.get<Bike[]>(this.bikesUrl)
+  public get(communityId: number): Observable<Bike[]> {
+    return this.http.get<Bike[]>(`${this.bikesUrl}?communityId=${communityId}`)
   }
 
-  public add(name: string): Observable<Bike> {
-    return this.http.post<Bike>(this.bikesUrl, {name: name})
+  public add(communityId: number, name: string): Observable<Bike> {
+    const bike: Omit<Bike, "id"> = {communityId, name}
+    return this.http.post<Bike>(this.bikesUrl, bike)
   }
 
   public delete(id: number): Observable<Object> {
