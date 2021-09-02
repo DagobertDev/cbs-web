@@ -12,6 +12,7 @@ import {AllBikesComponent} from './components/all-bikes/all-bikes.component';
 import {EditBikeComponent} from './components/edit-bike/edit-bike.component';
 import {LoginComponent} from './components/login/login.component';
 import {MemberCommunitiesComponent} from './components/member-communities/member-communities.component'
+import {NotFoundComponent} from './components/not-found/not-found.component';
 import {OverviewComponent} from './components/overview/overview.component'
 import {RegistrationComponent} from './components/registration/registration.component';
 import {JwtInterceptor} from "./services/jwt.interceptor";
@@ -25,6 +26,7 @@ import {JwtInterceptor} from "./services/jwt.interceptor";
     LoginComponent,
     MemberCommunitiesComponent,
     OverviewComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
