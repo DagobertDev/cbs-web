@@ -1,10 +1,10 @@
-<p>
+<h1>
   Communities
-</p>
+</h1>
 
 <ul>
   <li *ngFor="let community of communities">
-    <button (click)="selectedCommunity = community.id">{{community.name}}</button>
+    <button (click)="selectedCommunity = community">{{community.name}}</button>
   </li>
 
   <li>
@@ -14,5 +14,5 @@
 </ul>
 
 <div *ngIf="selectedCommunity != null">
-  <app-all-bikes [community]="selectedCommunity"></app-all-bikes>
+  <app-community-overview [community]="selectedCommunity"></app-community-overview>
 </div>

@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Bike} from "../../models/bike"
+import {Community} from "../../models/community"
 import {BikeService} from "../../services/bike.service"
 
 @Component({
@@ -8,14 +9,14 @@ import {BikeService} from "../../services/bike.service"
   styleUrls: ['./all-bikes.component.css'],
 })
 export class AllBikesComponent {
-  private _community!: number
+  private _community!: Community
 
-  @Input() set community(value: number) {
+  @Input() set community(value: Community) {
     this._community = value
     this.getBikes()
   }
 
-  get community(): number {
+  get community() {
     return this._community
   }
 
@@ -26,12 +27,12 @@ export class AllBikesComponent {
   }
 
   getBikes() {
-    this.bikeService.get(this.community).subscribe(bikes => this.bikes = bikes)
+    this.bikeService.get(this.community.id).subscribe(bikes => this.bikes = bikes)
   }
 
   addBike() {
     let name = this.newName;
     this.newName = ""
-    this.bikeService.add(this.community, name).subscribe(() => this.getBikes())
+    this.bikeService.add(this.community.id, name).subscribe(() => this.getBikes())
   }
 }

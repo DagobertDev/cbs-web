@@ -10,7 +10,7 @@ import {CommunityService} from "../../services/community.service"
 })
 export class MemberCommunitiesComponent implements OnInit {
   communities: Community[] = []
-  selectedCommunity: number | null = null
+  selectedCommunity: Community | null = null
   newName: string = ""
 
   constructor(private auth: AuthService, private communityService: CommunityService) {
