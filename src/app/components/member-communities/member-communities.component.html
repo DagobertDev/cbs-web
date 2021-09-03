@@ -4,10 +4,15 @@
 
 <ul>
   <li *ngFor="let community of communities">
-    {{community.name}}
-    <app-all-bikes [community]="community.id"></app-all-bikes>
+    <button (click)="selectedCommunity = community.id">{{community.name}}</button>
+  </li>
+
+  <li>
+    <input [(ngModel)]="newName" type="text" placeholder="Name">
+    <button (click)="addCommunity()"> Community hinzufügen</button>
   </li>
 </ul>
 
-<input [(ngModel)]="newName" type="text" placeholder="Name">
-<button (click)="addCommunity()"> Add</button>
+<div *ngIf="selectedCommunity != null">
+  <app-all-bikes [community]="selectedCommunity"></app-all-bikes>
+</div>

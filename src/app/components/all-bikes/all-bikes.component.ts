@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Bike} from "../../models/bike"
 import {BikeService} from "../../services/bike.service"
 
@@ -7,16 +7,22 @@ import {BikeService} from "../../services/bike.service"
   templateUrl: './all-bikes.component.html',
   styleUrls: ['./all-bikes.component.css'],
 })
-export class AllBikesComponent implements OnInit {
-  @Input() community!: number
+export class AllBikesComponent {
+  private _community!: number
+
+  @Input() set community(value: number) {
+    this._community = value
+    this.getBikes()
+  }
+
+  get community(): number {
+    return this._community
+  }
+
   bikes: Bike[] = []
   newName: string = ""
 
   constructor(private bikeService: BikeService) {
-  }
-
-  ngOnInit() {
-    this.getBikes()
   }
 
   getBikes() {
