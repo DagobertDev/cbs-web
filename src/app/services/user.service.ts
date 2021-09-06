@@ -1,6 +1,7 @@
 import {HttpClient} from "@angular/common/http"
 import {Injectable} from '@angular/core';
-import {Observable} from "rxjs"
+import {Observable, of} from "rxjs"
+import {catchError} from "rxjs/operators"
 import {environment} from "../../environments/environment"
 import {User} from "../models/user"
 import {AuthService} from "./auth.service"
@@ -19,7 +20,7 @@ export class UserService {
   }
 
   public getByEmail(email: string): Observable<User | null> {
-    return this.http.get<User>(`${this.userUrl}/email/${email}`)
+    return this.http.get<User>(`${this.userUrl}?email=${email}`).pipe(catchError(() => of(null)))
   }
 
   public add(user: UserWrite): Observable<User> {

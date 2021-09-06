@@ -1,0 +1,13 @@
+<h2>
+  Mitglieder
+</h2>
+
+<ul>
+  <li *ngFor="let member of members">
+    {{member.username}}
+  </li>
+  <li>
+    <input [(ngModel)]="newMemberEmail" type="text" placeholder="Email">
+    <button (click)="addMember()"> Mitglied einladen</button>
+  </li>
+</ul>
