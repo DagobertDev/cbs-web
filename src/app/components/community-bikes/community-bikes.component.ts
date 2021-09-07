@@ -4,11 +4,11 @@ import {Community} from "../../models/community"
 import {BikeService} from "../../services/bike.service"
 
 @Component({
-  selector: 'app-all-bikes[community]',
-  templateUrl: './all-bikes.component.html',
-  styleUrls: ['./all-bikes.component.css'],
+  selector: 'app-community-bikes[community]',
+  templateUrl: './community-bikes.component.html',
+  styleUrls: ['./community-bikes.component.css'],
 })
-export class AllBikesComponent {
+export class CommunityBikesComponent {
   private _community!: Community
 
   @Input() set community(value: Community) {

@@ -8,7 +8,7 @@ import {environment} from "../environments/environment"
 import {AppRoutingModule} from "./app-routing.module"
 
 import {AppComponent} from './app.component';
-import {AllBikesComponent} from './components/all-bikes/all-bikes.component';
+import {CommunityBikesComponent} from './components/community-bikes/community-bikes.component';
 import {CommunityMembersComponent} from './components/community-members/community-members.component';
 import {CommunityOverviewComponent} from './components/community-overview/community-overview.component';
 import {EditBikeComponent} from './components/edit-bike/edit-bike.component';
@@ -22,7 +22,7 @@ import {JwtInterceptor} from "./services/jwt.interceptor";
 @NgModule({
   declarations: [
     AppComponent,
-    AllBikesComponent,
+    CommunityBikesComponent,
     EditBikeComponent,
     RegistrationComponent,
     LoginComponent,
