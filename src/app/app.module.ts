@@ -8,6 +8,7 @@ import {environment} from "../environments/environment"
 import {AppRoutingModule} from "./app-routing.module"
 
 import {AppComponent} from './app.component';
+import {AvailableBikesComponent} from './components/available-bikes/available-bikes.component';
 import {CommunityBikesComponent} from './components/community-bikes/community-bikes.component';
 import {CommunityMembersComponent} from './components/community-members/community-members.component';
 import {CommunityOverviewComponent} from './components/community-overview/community-overview.component';
@@ -31,6 +32,7 @@ import {JwtInterceptor} from "./services/jwt.interceptor";
     NotFoundComponent,
     CommunityOverviewComponent,
     CommunityMembersComponent,
+    AvailableBikesComponent,
   ],
   imports: [
     BrowserModule,

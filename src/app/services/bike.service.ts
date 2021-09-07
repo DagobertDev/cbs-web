@@ -13,8 +13,12 @@ export class BikeService {
   constructor(private http: HttpClient) {
   }
 
-  public get(communityId: number): Observable<Bike[]> {
+  public getByCommunity(communityId: number): Observable<Bike[]> {
     return this.http.get<Bike[]>(`${this.bikesUrl}?communityId=${communityId}`)
+  }
+
+  public getByUser(userId: string): Observable<Bike[]> {
+    return this.http.get<Bike[]>(`${this.bikesUrl}?userId=${userId}`)
   }
 
   public add(communityId: number, name: string): Observable<Bike> {

@@ -27,7 +27,7 @@ export class CommunityBikesComponent {
   }
 
   getBikes() {
-    this.bikeService.get(this.community.id).subscribe(bikes => this.bikes = bikes)
+    this.bikeService.getByCommunity(this.community.id).subscribe(bikes => this.bikes = bikes)
   }
 
   addBike() {
