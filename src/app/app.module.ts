@@ -4,6 +4,7 @@ import {initializeApp, provideFirebaseApp} from "@angular/fire/app"
 import {getAuth, provideAuth} from "@angular/fire/auth"
 import {FormsModule} from "@angular/forms"
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {environment} from "../environments/environment"
 import {AppRoutingModule} from "./app-routing.module"
 
@@ -41,6 +42,7 @@ import {JwtInterceptor} from "./services/jwt.interceptor";
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),
+    BrowserAnimationsModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
