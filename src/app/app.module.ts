@@ -6,6 +6,7 @@ import {FormsModule} from "@angular/forms"
 import {MatButtonModule} from "@angular/material/button"
 import {MatIconModule} from "@angular/material/icon"
 import {MatInputModule} from "@angular/material/input"
+import {MatToolbarModule} from "@angular/material/toolbar"
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {environment} from "../environments/environment"
@@ -17,6 +18,7 @@ import {CommunityBikesComponent} from './components/community-bikes/community-bi
 import {CommunityMembersComponent} from './components/community-members/community-members.component';
 import {CommunityOverviewComponent} from './components/community-overview/community-overview.component';
 import {EditBikeComponent} from './components/edit-bike/edit-bike.component';
+import {NavbarComponent} from './components/layout/navbar/navbar.component';
 import {LoginComponent} from './components/login/login.component';
 import {MemberCommunitiesComponent} from './components/member-communities/member-communities.component'
 import {NotFoundComponent} from './components/not-found/not-found.component';
@@ -37,6 +39,7 @@ import {JwtInterceptor} from "./services/jwt.interceptor";
     CommunityOverviewComponent,
     CommunityMembersComponent,
     AvailableBikesComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,7 @@ import {JwtInterceptor} from "./services/jwt.interceptor";
     MatInputModule,
     MatIconModule,
     MatButtonModule,
+    MatToolbarModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
