@@ -7,7 +7,10 @@
     <app-edit-bike [bike]="bike"></app-edit-bike>
   </li>
   <li>
-    <input [(ngModel)]="newName" type="text" placeholder="Name">
-    <button (click)="addBike()"> Fahrrad hinzufügen</button>
+    <mat-form-field appearance="standard">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" [(ngModel)]="newName">
+    </mat-form-field>
+    <button (click)="addBike()" mat-flat-button color="primary"> Fahrrad hinzufügen</button>
   </li>
 </ul>

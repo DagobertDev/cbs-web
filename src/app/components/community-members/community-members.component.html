@@ -7,7 +7,10 @@
     {{member.username}}
   </li>
   <li>
-    <input [(ngModel)]="newMemberEmail" type="text" placeholder="Email">
-    <button (click)="addMember()"> Mitglied einladen</button>
+    <mat-form-field appearance="standard">
+      <mat-label>E-Mail</mat-label>
+      <input matInput type="email" [(ngModel)]="newMemberEmail">
+    </mat-form-field>
+    <button (click)="addMember()" mat-flat-button color="primary"> Mitglied einladen</button>
   </li>
 </ul>

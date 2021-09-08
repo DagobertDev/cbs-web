@@ -4,12 +4,15 @@
 
 <ul>
   <li *ngFor="let community of communities">
-    <button (click)="selectedCommunity = community">{{community.name}}</button>
+    <button (click)="selectedCommunity = community" mat-button>{{community.name}}</button>
   </li>
 
   <li>
-    <input [(ngModel)]="newName" type="text" placeholder="Name">
-    <button (click)="addCommunity()"> Community hinzufügen</button>
+    <mat-form-field appearance="standard">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" [(ngModel)]="newName">
+    </mat-form-field>
+    <button (click)="addCommunity()" mat-flat-button color="primary"> Community hinzufügen</button>
   </li>
 </ul>
 

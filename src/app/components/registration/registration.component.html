@@ -1,11 +1,20 @@
 <h1> Willkommen beim Community Bike-Sharing! </h1>
 <h2> Registrieren </h2>
 
-<p> E-Mail eingeben: </p>
-<input type="email" [(ngModel)]="email">
+<p>
+  <mat-form-field appearance="standard">
+    <mat-label>E-Mail</mat-label>
+    <input matInput type="email" [(ngModel)]="email">
+  </mat-form-field>
+</p>
 
-<p> Passwort eingeben: </p>
-<input type="password" [(ngModel)]="password">
+<p>
+  <mat-form-field appearance="standard">
+    <mat-label>Passwort</mat-label>
+    <input matInput type="password" [(ngModel)]="password">
+  </mat-form-field>
+</p>
 
-<button (click)="register()"> Registrieren</button>
-<a routerLink="/login"> Zum Login </a>
+
+<button (click)="register()" mat-flat-button color="primary">Registrieren</button>
+<a routerLink="/login" mat-button> Zum Login </a>
