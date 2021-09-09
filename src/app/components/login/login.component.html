@@ -1,20 +1,30 @@
 <h1> Willkommen beim Community Bike-Sharing! </h1>
 <h2> Login </h2>
 
-<p>
-  <mat-form-field appearance="standard">
-    <mat-label>E-Mail</mat-label>
-    <input matInput type="email" [(ngModel)]="email">
-  </mat-form-field>
-</p>
+<form>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>E-Mail</mat-label>
+      <input matInput type="email" [formControl]="emailControl" [(ngModel)]="email">
+      <mat-error *ngIf="emailControl.invalid && emailControl.touched">
+        Ungültige E-Mail
+      </mat-error>
+    </mat-form-field>
+  </p>
 
-<p>
-  <mat-form-field appearance="standard">
-    <mat-label>Passwort</mat-label>
-    <input matInput type="password" [(ngModel)]="password">
-    <mat-hint>Mindestens 6 Zeichen</mat-hint>
-  </mat-form-field>
-</p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Passwort</mat-label>
+      <input matInput type="password" [formControl]="passwordControl" [(ngModel)]="password">
+      <mat-error *ngIf="passwordControl.invalid && passwordControl.touched">
+        Passwort eingeben
+      </mat-error>
+    </mat-form-field>
+  </p>
+</form>
 
-<button (click)="signIn()" mat-flat-button color="primary"> Login</button>
+
+<button (click)="signIn()" mat-flat-button color="primary" [disabled]="emailControl.invalid || passwordControl.invalid">
+  Login
+</button>
 <a routerLink="/registration" mat-button> Zur Registrierung </a>
