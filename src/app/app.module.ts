@@ -6,6 +6,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms"
 import {MatButtonModule} from "@angular/material/button"
 import {MatIconModule} from "@angular/material/icon"
 import {MatInputModule} from "@angular/material/input"
+import {MatTabsModule} from "@angular/material/tabs"
 import {MatToolbarModule} from "@angular/material/toolbar"
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -54,6 +55,7 @@ import {JwtInterceptor} from "./services/jwt.interceptor";
     MatButtonModule,
     MatToolbarModule,
     ReactiveFormsModule,
+    MatTabsModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

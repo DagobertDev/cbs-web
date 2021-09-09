@@ -1,3 +1,23 @@
-<button (click)="signOut()" mat-stroked-button> Logout</button>
-<app-available-bikes></app-available-bikes>
-<app-member-communities></app-member-communities>
+<mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>map</mat-icon>
+      Übersicht
+    </ng-template>
+    <app-available-bikes></app-available-bikes>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>people</mat-icon>
+      Communities
+    </ng-template>
+    <app-member-communities></app-member-communities>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>person</mat-icon>
+      Profil
+    </ng-template>
+    <button (click)="signOut()" mat-stroked-button> Logout</button>
+  </mat-tab>
+</mat-tab-group>
