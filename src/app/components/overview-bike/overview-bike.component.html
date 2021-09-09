@@ -1,4 +1,9 @@
-<button mat-button [matMenuTriggerFor]="menu">{{bike.name}}</button>
+<button mat-button [matMenuTriggerFor]="menu">
+  {{bike.name}}
+  <span style="color:darkorange; margin-left: 5px" *ngIf="bike.userId">
+    Ausgeliehen
+  </span>
+</button>
 <mat-menu #menu="matMenu">
   <button (click)="lendBike()" mat-menu-item *ngIf="!bike.userId">Ausleihen</button>
   <button (click)="returnBike()" mat-menu-item *ngIf="bike.userId">Zurückgeben</button>
