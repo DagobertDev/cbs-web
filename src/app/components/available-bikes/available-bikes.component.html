@@ -4,6 +4,6 @@
 
 <ul>
   <li *ngFor="let bike of bikes">
-    {{bike.name}}
+    <app-overview-bike [bike]="bike"></app-overview-bike>
   </li>
 </ul>

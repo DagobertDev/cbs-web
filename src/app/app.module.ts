@@ -6,6 +6,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms"
 import {MatButtonModule} from "@angular/material/button"
 import {MatIconModule} from "@angular/material/icon"
 import {MatInputModule} from "@angular/material/input"
+import {MatMenuModule} from "@angular/material/menu"
 import {MatTabsModule} from "@angular/material/tabs"
 import {MatToolbarModule} from "@angular/material/toolbar"
 import {BrowserModule} from '@angular/platform-browser';
@@ -23,6 +24,7 @@ import {NavbarComponent} from './components/layout/navbar/navbar.component';
 import {LoginComponent} from './components/login/login.component';
 import {MemberCommunitiesComponent} from './components/member-communities/member-communities.component'
 import {NotFoundComponent} from './components/not-found/not-found.component';
+import {OverviewBikeComponent} from './components/overview-bike/overview-bike.component';
 import {OverviewComponent} from './components/overview/overview.component'
 import {RegistrationComponent} from './components/registration/registration.component';
 import {JwtInterceptor} from "./services/jwt.interceptor";
@@ -41,6 +43,7 @@ import {JwtInterceptor} from "./services/jwt.interceptor";
     CommunityMembersComponent,
     AvailableBikesComponent,
     NavbarComponent,
+    OverviewBikeComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,7 @@ import {JwtInterceptor} from "./services/jwt.interceptor";
     MatToolbarModule,
     ReactiveFormsModule,
     MatTabsModule,
+    MatMenuModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

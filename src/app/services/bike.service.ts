@@ -29,4 +29,12 @@ export class BikeService {
   public delete(id: number): Observable<Object> {
     return this.http.delete(`${this.bikesUrl}/${id}`)
   }
+
+  public lend(bike: Bike) {
+    return this.http.post<Bike>(`${this.bikesUrl}/${bike.id}/lend`, null)
+  }
+
+  public return(bike: Bike) {
+    return this.http.post<Bike>(`${this.bikesUrl}/${bike.id}/return`, null)
+  }
 }
