@@ -50,7 +50,7 @@ import {JwtInterceptor} from "./services/jwt.interceptor";
     ProfileComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'serverApp'}),
     FormsModule,
     HttpClientModule,
     AppRoutingModule,

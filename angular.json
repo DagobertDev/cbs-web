@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/cbs-web",
+            "outputPath": "dist/cbs-web/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -100,6 +100,67 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/cbs-web/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "cbs-web:build:development",
+              "serverTarget": "cbs-web:server:development"
+            },
+            "production": {
+              "browserTarget": "cbs-web:build:production",
+              "serverTarget": "cbs-web:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/",
+              "/login",
+              "/registration"
+            ],
+            "guessRoutes": false
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "cbs-web:build:production",
+              "serverTarget": "cbs-web:server:production"
+            },
+            "development": {
+              "browserTarget": "cbs-web:build:development",
+              "serverTarget": "cbs-web:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
