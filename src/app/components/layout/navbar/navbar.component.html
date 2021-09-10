@@ -4,7 +4,7 @@
       <mat-icon>directions_bike</mat-icon>
       Community Bike-Sharing
     </a>
-    <div fxHide.xs="true">
+    <div fxHide.xs="true" *ngIf="signedIn | async">
       <a routerLink="/overview" mat-button>
         <mat-icon>map</mat-icon>
         Übersicht
@@ -19,7 +19,7 @@
       </a>
     </div>
   </mat-toolbar-row>
-  <mat-toolbar-row fxHide.gt-xs="true">
+  <mat-toolbar-row fxHide.gt-xs="true" *ngIf="signedIn | async">
     <a routerLink="/overview" mat-button>
       <mat-icon>map</mat-icon>
       Übersicht
