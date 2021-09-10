@@ -1,6 +1,36 @@
 <mat-toolbar color="primary">
-  <a routerLink="/" mat-button>
-    <mat-icon>directions_bike</mat-icon>
-    Community Bike-Sharing
-  </a>
+  <mat-toolbar-row>
+    <a routerLink="/" mat-button>
+      <mat-icon>directions_bike</mat-icon>
+      Community Bike-Sharing
+    </a>
+    <div fxHide.xs="true">
+      <a routerLink="/overview" mat-button>
+        <mat-icon>map</mat-icon>
+        Übersicht
+      </a>
+      <a routerLink="/communities" mat-button>
+        <mat-icon>people</mat-icon>
+        Communities
+      </a>
+      <a routerLink="/profile" mat-button>
+        <mat-icon>person</mat-icon>
+        Profil
+      </a>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row fxHide.gt-xs="true">
+    <a routerLink="/overview" mat-button>
+      <mat-icon>map</mat-icon>
+      Übersicht
+    </a>
+    <a routerLink="/communities" mat-button>
+      <mat-icon>people</mat-icon>
+      Communities
+    </a>
+    <a routerLink="/profile" mat-button>
+      <mat-icon>person</mat-icon>
+      Profil
+    </a>
+  </mat-toolbar-row>
 </mat-toolbar>
