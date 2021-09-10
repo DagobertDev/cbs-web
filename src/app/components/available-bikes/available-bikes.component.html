@@ -1,6 +1,13 @@
 <h1>
   Verfügbare Fahrräder:
+  <button mat-icon-button (click)="refreshBikes()">
+    <mat-icon [class.rotating]="refreshing">refresh</mat-icon>
+  </button>
 </h1>
+
+<span *ngIf="bikes.length == 0" style="animation: rotation 2s infinite linear; ">
+  Zurzeit sind keine Fahrräder verfügbar.
+</span>
 
 <ul>
   <li *ngFor="let bike of bikes">
