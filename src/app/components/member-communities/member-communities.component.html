@@ -2,20 +2,29 @@
   Communities
 </h1>
 
-<ul>
-  <li *ngFor="let community of communities">
-    <button (click)="selectedCommunity = community" mat-button>{{community.name}}</button>
-  </li>
+<mat-selection-list #list multiple="false">
+  <mat-list-option *ngFor="let community of communities" [value]="community">
+    <mat-icon mat-list-icon>people</mat-icon>
+    <h4 mat-line>{{community.name}}</h4>
+    <mat-divider [inset]="true"></mat-divider>
+  </mat-list-option>
+  <mat-list-option value="new">
+    <mat-icon mat-list-icon>add</mat-icon>
+    <h4 mat-line>Community erstellen</h4>
+    <mat-divider [inset]="true"></mat-divider>
+  </mat-list-option>
+</mat-selection-list>
 
-  <li>
-    <mat-form-field appearance="standard">
-      <mat-label>Name</mat-label>
-      <input matInput type="text" [(ngModel)]="newName">
-    </mat-form-field>
-    <button (click)="addCommunity()" mat-flat-button color="primary"> Community hinzufügen</button>
-  </li>
-</ul>
+<p *ngIf="list.selectedOptions.selected[0]?.value == 'new'; else showExisting">
+  <mat-form-field appearance="standard">
+    <mat-label>Name</mat-label>
+    <input matInput type="text" [(ngModel)]="newName">
+  </mat-form-field>
+  <button (click)="addCommunity()" mat-flat-button color="primary">Community erstellen</button>
+</p>
 
-<div *ngIf="selectedCommunity != null">
-  <app-community-overview [community]="selectedCommunity"></app-community-overview>
-</div>
+<ng-template #showExisting>
+  <p *ngIf="list.selectedOptions.selected[0]?.value != null">
+    <app-community-overview [community]="list.selectedOptions.selected[0].value"></app-community-overview>
+  </p>
+</ng-template>
