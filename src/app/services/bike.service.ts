@@ -30,6 +30,10 @@ export class BikeService {
     return this.http.delete(`${this.bikesUrl}/${id}`)
   }
 
+  public update(bike: Bike): Observable<Bike> {
+    return this.http.put<Bike>(`${this.bikesUrl}/${bike.id}`, bike)
+  }
+
   public lend(bike: Bike) {
     return this.http.post<Bike>(`${this.bikesUrl}/${bike.id}/lend`, null)
   }

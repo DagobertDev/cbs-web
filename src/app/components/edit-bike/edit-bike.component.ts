@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Bike} from "../../models/bike"
 import {BikeService} from "../../services/bike.service"
 
@@ -8,17 +8,23 @@ import {BikeService} from "../../services/bike.service"
   styleUrls: ['./edit-bike.component.css'],
 })
 export class EditBikeComponent implements OnInit {
-  @Input() bike?: Bike
+  @Input() bike!: Bike
+  @Output() deleted = new EventEmitter()
+  newName = ""
 
   constructor(private bikeService: BikeService) {
   }
 
   ngOnInit(): void {
+    this.newName = this.bike.name
+  }
+
+  rename() {
+    this.bike.name = this.newName
+    this.bikeService.update(this.bike).subscribe(b => Object.assign(b, this.bike))
   }
 
   delete() {
-    if (this.bike != null) {
-      this.bikeService.delete(this.bike.id).subscribe(() => this.bike = undefined)
-    }
+    this.bikeService.delete(this.bike.id).subscribe(this.deleted.emit)
   }
 }

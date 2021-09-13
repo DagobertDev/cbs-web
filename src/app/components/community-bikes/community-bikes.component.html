@@ -2,15 +2,19 @@
   Verfügbare Fahrräder:
 </h2>
 
-<ul>
-  <li *ngFor="let bike of bikes">
-    <app-edit-bike [bike]="bike"></app-edit-bike>
-  </li>
-  <li>
-    <mat-form-field appearance="standard">
-      <mat-label>Name</mat-label>
-      <input matInput type="text" [(ngModel)]="newName">
-    </mat-form-field>
-    <button (click)="addBike()" mat-flat-button color="primary"> Fahrrad hinzufügen</button>
-  </li>
-</ul>
+<mat-form-field appearance="standard">
+  <mat-label>Name</mat-label>
+  <input matInput type="text" [(ngModel)]="newName">
+</mat-form-field>
+<button (click)="addBike()" mat-flat-button color="primary"> Fahrrad hinzufügen</button>
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let bike of bikes; trackBy: getBikeId">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{bike.name}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-edit-bike [bike]="bike" (deleted)="deleteBike(bike.id)"></app-edit-bike>
+  </mat-expansion-panel>
+</mat-accordion>

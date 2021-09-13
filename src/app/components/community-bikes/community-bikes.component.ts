@@ -26,6 +26,14 @@ export class CommunityBikesComponent {
   constructor(private bikeService: BikeService) {
   }
 
+  getBikeId(index: number, bike: Bike) {
+    return bike.id
+  }
+
+  deleteBike(id: number) {
+    this.bikes = this.bikes.filter(bike => bike.id != id)
+  }
+
   getBikes() {
     this.bikeService.getByCommunity(this.community.id).subscribe(bikes => this.bikes = bikes)
   }

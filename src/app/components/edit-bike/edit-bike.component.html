@@ -1,4 +1,8 @@
 <div *ngIf="bike != null">
-  {{bike.name}}
+  <mat-form-field appearance="standard">
+    <mat-label>Name</mat-label>
+    <input matInput type="text" [(ngModel)]="newName">
+  </mat-form-field>
+  <button (click)="rename()" mat-flat-button color="primary">Fahrrad umbenennen</button>
   <button (click)="delete()" mat-stroked-button color="warn">Entfernen</button>
 </div>
