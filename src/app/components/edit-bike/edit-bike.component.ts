@@ -25,6 +25,6 @@ export class EditBikeComponent implements OnInit {
   }
 
   delete() {
-    this.bikeService.delete(this.bike.id).subscribe(this.deleted.emit)
+    this.bikeService.delete(this.bike.id).subscribe(() => this.deleted.emit())
   }
 }
