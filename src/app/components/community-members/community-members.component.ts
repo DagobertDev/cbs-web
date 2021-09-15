@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Community} from "../../models/community"
-import {Membership} from "../../models/membership"
+import {CommunityRole, Membership} from "../../models/membership"
 import {MembershipService} from "../../services/membership.service"
 import {UserService} from "../../services/user.service"
 
@@ -10,6 +10,7 @@ import {UserService} from "../../services/user.service"
   styleUrls: ['./community-members.component.css'],
 })
 export class CommunityMembersComponent {
+  public CommunityRole = CommunityRole
   private _community!: Community
 
   @Input() set community(value: Community) {

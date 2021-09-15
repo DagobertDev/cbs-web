@@ -5,6 +5,7 @@
 <ul>
   <li *ngFor="let member of members">
     {{member.username}}
+    <span *ngIf="member.role == CommunityRole.Admin" style="color: green;">Admin</span>
   </li>
   <li>
     <mat-form-field appearance="standard">
