@@ -3,4 +3,5 @@ export interface Bike {
   communityId: number
   name: string
   userId?: string
+  position?: GeolocationCoordinates
 }

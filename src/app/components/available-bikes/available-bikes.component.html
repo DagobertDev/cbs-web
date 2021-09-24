@@ -5,6 +5,16 @@
   </button>
 </h1>
 
+<google-map>
+  <ng-container *ngFor="let bike of bikes">
+    <map-marker *ngIf="bike.position"
+                [position]="bike.position | positionConverter"
+                [label]="bike.name"
+                [title]="bike.name">
+    </map-marker>
+  </ng-container>
+</google-map>
+
 <span *ngIf="bikes.length == 0" style="animation: rotation 2s infinite linear; ">
   Zurzeit sind keine Fahrräder verfügbar.
 </span>
