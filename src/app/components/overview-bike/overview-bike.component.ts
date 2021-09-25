@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Bike} from "../../models/bike"
 import {BikeService} from "../../services/bike.service"
+import {LocationService} from "../../services/location.service"
 
 @Component({
   selector: 'app-overview-bike[bike]',
@@ -18,17 +19,25 @@ export class OverviewBikeComponent implements OnInit {
     return this._bike
   }
 
-  constructor(private bikeService: BikeService) {
+  @Output() updated = new EventEmitter<Bike>()
+
+  constructor(private bikeService: BikeService, private locationService: LocationService) {
   }
 
   ngOnInit(): void {
   }
 
   lendBike() {
-    return this.bikeService.lend(this.bike).subscribe(bike => this.bike = bike)
+    return this.bikeService.lend(this.bike).subscribe(bike => this.updated.emit(bike))
   }
 
-  returnBike() {
-    return this.bikeService.return(this.bike).subscribe(bike => this.bike = bike)
+  async returnBike() {
+    const location = await this.locationService.get().toPromise().catch(() => alert("Standort konnte nicht erfasst werden."))
+
+    if (location != null){
+      this.bikeService.return(this.bike, location).subscribe(bike => {
+        this.updated.emit(bike)
+        alert("Fahrrad zurückgegeben")})
+    }
   }
 }

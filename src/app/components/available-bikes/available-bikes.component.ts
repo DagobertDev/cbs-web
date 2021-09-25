@@ -32,4 +32,13 @@ export class AvailableBikesComponent implements OnInit {
       this.refreshing = false
     }))
   }
+
+  public getBikeId(index: number, bike: Bike) {
+    return bike.id
+  }
+
+  public update(bike: Bike) {
+    const index = this.bikes.findIndex(b => b.id == bike.id)
+    this.bikes[index] = bike
+  }
 }

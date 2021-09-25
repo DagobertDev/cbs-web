@@ -38,7 +38,7 @@ export class BikeService {
     return this.http.post<Bike>(`${this.bikesUrl}/${bike.id}/lend`, null)
   }
 
-  public return(bike: Bike) {
-    return this.http.post<Bike>(`${this.bikesUrl}/${bike.id}/return`, null)
+  public return(bike: Bike, position: GeolocationCoordinates) {
+    return this.http.post<Bike>(`${this.bikesUrl}/${bike.id}/return`, position)
   }
 }

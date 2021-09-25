@@ -6,7 +6,7 @@
 </h1>
 
 <google-map>
-  <ng-container *ngFor="let bike of bikes">
+  <ng-container *ngFor="let bike of bikes; trackBy: getBikeId">
     <map-marker *ngIf="bike.position"
                 [position]="bike.position | positionConverter"
                 [label]="bike.name"
@@ -20,7 +20,7 @@
 </span>
 
 <ul>
-  <li *ngFor="let bike of bikes">
-    <app-overview-bike [bike]="bike"></app-overview-bike>
+  <li *ngFor="let bike of bikes; trackBy: getBikeId">
+    <app-overview-bike [bike]="bike" (updated)="update($event)"></app-overview-bike>
   </li>
 </ul>
