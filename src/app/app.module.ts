@@ -13,6 +13,7 @@ import {MatListModule} from "@angular/material/list"
 import {MatMenuModule} from "@angular/material/menu"
 import {MatTabsModule} from "@angular/material/tabs"
 import {MatToolbarModule} from "@angular/material/toolbar"
+import {MatTooltipModule} from "@angular/material/tooltip"
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {environment} from "../environments/environment"
@@ -53,26 +54,27 @@ import { PositionConverterPipe } from './components/pipes/position-converter.pip
     ProfileComponent,
     PositionConverterPipe,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideAuth(() => getAuth()),
-    GoogleMapsModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule,
-    MatToolbarModule,
-    ReactiveFormsModule,
-    MatTabsModule,
-    MatMenuModule,
-    FlexLayoutModule,
-    MatListModule,
-    MatExpansionModule,
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+        provideAuth(() => getAuth()),
+        GoogleMapsModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatIconModule,
+        MatButtonModule,
+        MatToolbarModule,
+        ReactiveFormsModule,
+        MatTabsModule,
+        MatMenuModule,
+        FlexLayoutModule,
+        MatListModule,
+        MatExpansionModule,
+        MatTooltipModule,
+    ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
   ],
